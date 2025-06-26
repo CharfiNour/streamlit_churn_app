@@ -40,16 +40,18 @@ if model is not None and df is not None:
     col1, col2 = st.columns(2)
     with col1:
         REGULARITY = st.number_input("REGULARITY", min_value=0.0)
+        st.markdown("**Number of times the client is active for 90 days**")
         FREQ_TOP_PACK = st.number_input("FREQ_TOP_PACK", min_value=0.0)
+        st.markdown("**Number of times the client has activated the top pack packages**")
         REGION = st.selectbox("REGION", list(region_dict.keys()))
+        st.markdown("**The location of the client**")
     with col2:
         ORANGE = st.number_input("ORANGE", min_value=0.0)
+        st.markdown("**Call to Orange**")
         TIGO = st.number_input("TIGO", min_value=0.0)
+        st.markdown("**Call to Tigo**")
         TOP_PACK = st.selectbox("TOP_PACK", list(toppack_dict.keys()))
-
-    # Encode categorical features
-    REGION_enc = region_dict[REGION]
-    TOP_PACK_enc = toppack_dict[TOP_PACK]
+        st.markdown("**The most active packs**")
 
     # Prepare input in the same order as model training
     input_data = np.array([[REGULARITY, FREQ_TOP_PACK, ORANGE, TIGO, REGION_enc, TOP_PACK_enc]])
