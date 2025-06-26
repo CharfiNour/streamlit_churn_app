@@ -40,9 +40,9 @@ if model is not None and df is not None:
     col1, col2 = st.columns(2)
     with col1:
         REGULARITY = st.number_input("REGULARITY", min_value=0.0)
-        st.markdown("**Number of times the client is active for 90 days**")
+        st.markdown("**Active for 90 days straight**")
         FREQ_TOP_PACK = st.number_input("FREQ_TOP_PACK", min_value=0.0)
-        st.markdown("**Number of times the client has activated the top pack packages**")
+        st.markdown("**Top pack packages activations count**")
         REGION = st.selectbox("REGION", list(region_dict.keys()))
         st.markdown("**The location of the client**")
     with col2:
