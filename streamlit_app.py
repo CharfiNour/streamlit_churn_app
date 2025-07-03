@@ -53,6 +53,10 @@ if model is not None and df is not None:
         TOP_PACK = st.selectbox("TOP_PACK", list(toppack_dict.keys()))
         st.markdown("**The most active packs**")
 
+    # Encode categorical features
+    REGION_enc = region_dict[REGION]
+    TOP_PACK_enc = toppack_dict[TOP_PACK]
+    
     # Prepare input in the same order as model training
     input_data = np.array([[REGULARITY, FREQ_TOP_PACK, ORANGE, TIGO, REGION_enc, TOP_PACK_enc]])
 
